@@ -84,6 +84,25 @@ class stopwatch(tk.Frame):
             self.running = False
         self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
         self.stopwatch_label.config(text='00:00:00') 
+        
+        
+    def change(self):
+        self.total_miliseconds += 1
+        if self.total_miliseconds == 60:
+            self.total_seconds +=1
+            self.total_miliseconds = 0
+        if self.total_minutes == 60:
+            self.total_minutes += 1
+            self.total_seconds = 0
+        
+        
+        total_minutes_string = f'{self.total_minutes}' if self.total_minutes>9 else f'0{self.total_minutes}'
+        total_seconds_string = f'{self.total_seconds}' if self.total_seconds>9 else f'0{self.total_seconds}'
+        total_miliseconds_string = f'{self.total_miliseconds}' if self.total_miliseconds>9 else f'0{self.total_miliseconds}'
+
+        self.stopwatch_label.config(text=total_minutes_string + ':' + total_seconds_string + ":" + total_miliseconds_string)
+        
+        self.new_time = self.stopwatch_label.after(10,self.change)
 
 root = tk.Tk()
 obj = stopwatch(window=root)
