@@ -78,7 +78,13 @@ class stopwatch(tk.Frame):
             self.stopwatch_label.after_cancel(self.new_time)
             self.running = False
             
-            
+  def reset_time(self):
+        if self.running:
+            self.reset_time_button.after_cancel(self.new_time)
+            self.running = False
+        self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
+        self.stopwatch_label.config(text='00:00:00') 
+
 root = tk.Tk()
 obj = stopwatch(window=root)
 obj.mainloop()
