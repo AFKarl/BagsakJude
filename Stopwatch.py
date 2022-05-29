@@ -66,7 +66,19 @@ class stopwatch(tk.Frame):
                     value.configure(text="00:00:00")
                 self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
 
+ 
+   def start_time(self):
+        if not self.running:
+            self.change()
+            self.running = True
 
+
+    def pause_time(self):
+        if self.running:
+            self.stopwatch_label.after_cancel(self.new_time)
+            self.running = False
+            
+            
 root = tk.Tk()
 obj = stopwatch(window=root)
 obj.mainloop()
