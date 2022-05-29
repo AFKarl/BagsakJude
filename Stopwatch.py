@@ -43,6 +43,42 @@ class stopwatch(tk.Frame):
         self.reset_button.pack(anchor='s', side=tk.LEFT)
 
         self.window.title("STOPWATCH")
+        
+def split_time(self):
+
+        if self.running:
+
+            self.lap_dictionary = {
+
+                "0": self.lap_1,
+
+                "1": self.lap_2,
+
+                "2": self.lap_3,
+
+                "3": self.lap_4,
+
+                "4": self.lap_5,
+
+            }
+
+            lap_length = [x for x in range(len(self.lap_dictionary))]
+
+            if  self.laps in lap_length:
+
+                self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
+
+                self.laps += 1
+
+            else:
+
+                self.laps = 0
+
+                for key, value in self.lap_dictionary.items():
+
+                    value.configure(text="00:00:00")
+
+                self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text']
 
 
 root = tk.Tk()
