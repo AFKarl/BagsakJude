@@ -106,7 +106,6 @@ class stopwatch(tk.Frame):
                 value.configure(text="00:00:00")
                 self.laps = 0
 
-
         self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
         self.stopwatch_label.config(text='00:00:00')
 
