@@ -8,5 +8,5 @@ Members:
 - John Rhey M. Puyong
 - Jehiel S. Estrebello
 - Mackendy L. Bactol
-- Jullann Josezar Malunes
+- Jullann Josezar T. Malunes
         
