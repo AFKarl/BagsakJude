@@ -16,6 +16,18 @@ class stopwatch(tk.Frame):
         self.pack
         self.laps = 0
         self.features()
+        self.lap_dictionary = {
+            "0": self.lap_1,
+            "1": self.lap_2,
+            "2": self.lap_3,
+            "3": self.lap_4,
+            "4": self.lap_5,
+            "5": self.lap_6,
+            "6": self.lap_7,
+            "7": self.lap_8,
+            "8": self.lap_9,
+            "9": self.lap_10,
+        }
 
     def features(self):
 
@@ -60,18 +72,6 @@ class stopwatch(tk.Frame):
 
     def split_time(self):
         if self.running:
-            self.lap_dictionary = {
-                "0": self.lap_1,
-                "1": self.lap_2,
-                "2": self.lap_3,
-                "3": self.lap_4,
-                "4": self.lap_5,
-                "5": self.lap_6,
-                "6": self.lap_7,
-                "7": self.lap_8,
-                "8": self.lap_9,
-                "9": self.lap_10,
-            }
             lap_length = [x for x in range(len(self.lap_dictionary))]
 
             if  self.laps in lap_length:
@@ -101,6 +101,12 @@ class stopwatch(tk.Frame):
         if self.running:
             self.reset_button.after_cancel(self.new_time)
             self.running = False
+
+            for key, value in self.lap_dictionary.items():
+                value.configure(text="00:00:00")
+                self.laps = 0
+
+
         self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
         self.stopwatch_label.config(text='00:00:00')
 
