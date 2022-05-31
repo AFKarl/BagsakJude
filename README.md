@@ -4,7 +4,9 @@
 
 
 Members:
-Karl Adrian Fulo                                                                                                                                                       John Rhey M. Puyong                                                                                                                                                        Jehiel S. Estrebello
-Mackendy L. Bactol
-Jullann Josezar Malunes
+- Karl Adrian Fulo
+- John Rhey M. Puyong
+- Jehiel S. Estrebello
+- Mackendy L. Bactol
+- Jullann Josezar Malunes
         
