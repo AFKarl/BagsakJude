@@ -19,40 +19,40 @@ class stopwatch(tk.Frame):
 
     def features(self):
 
-        self.stopwatch_label = tk.Label(text='00:00:00', font=('Arial', 50))
+        self.stopwatch_label = tk.Label(text='00:00:00', font=('courier', 50))
         self.stopwatch_label.pack(pady=5, ipady=20)
 
-        self.lap_1 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_1 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_1.pack()
-        self.lap_2 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_2 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_2.pack()
-        self.lap_3 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_3 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_3.pack()
-        self.lap_4 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_4 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_4.pack()
-        self.lap_5 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_5 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_5.pack()
-         self.lap_6 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_6 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_6.pack()
-         self.lap_7 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_7 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_7.pack()
-         self.lap_8 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_8 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_8.pack()
-         self.lap_9 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_9 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_9.pack()
-         self.lap_10 = tk.Label(text="00:00:00", font=("Arial", 15), height="1")
+        self.lap_10 = tk.Label(text="00:00:00", font=("courier", 15), height="1")
         self.lap_10.pack()
 
-        self.start_time_button = tk.Button(text='Start', height=2, width=10, font=('Arial', 15), command=self.start_time)
+        self.start_time_button = tk.Button(text='Start', height=2, width=10, font=('Segoe UI Semibold', 15), command=self.start_time)
         self.start_time_button.pack(anchor='s', side=tk.LEFT)
 
-        self.pause_time_button = tk.Button(text='Stop', height=2, width=11, font=('Arial', 15), command=self.pause_time)
+        self.pause_time_button = tk.Button(text='Stop', height=2, width=11, font=('Segoe UI Semibold', 15), command=self.pause_time)
         self.pause_time_button.pack(anchor='s', side=tk.LEFT)
 
-        self.split_time_button = tk.Button(text='Splits/Laps', height=2, width=11, font=('Arial', 15), command=self.split_time)
+        self.split_time_button = tk.Button(text='Splits/Laps', height=2, width=11, font=('Segoe UI Semibold', 15), command=self.split_time)
         self.split_time_button.pack(anchor='s', side=tk.LEFT)
 
-        self.reset_button = tk.Button(text='Reset', height=2, width=10, font=('Arial', 15), command=self.reset_time)
+        self.reset_button = tk.Button(text='Reset', height=2, width=10, font=('Segoe UI Semibold', 15), command=self.reset_time)
         self.reset_button.pack(anchor='s', side=tk.LEFT)
 
         self.window.title("STOPWATCH")
@@ -66,6 +66,11 @@ class stopwatch(tk.Frame):
                 "2": self.lap_3,
                 "3": self.lap_4,
                 "4": self.lap_5,
+                "5": self.lap_6,
+                "6": self.lap_7,
+                "7": self.lap_8,
+                "8": self.lap_9,
+                "9": self.lap_10,
             }
             lap_length = [x for x in range(len(self.lap_dictionary))]
 
@@ -94,7 +99,7 @@ class stopwatch(tk.Frame):
 
     def reset_time(self):
         if self.running:
-            self.reset_time_button.after_cancel(self.new_time)
+            self.reset_button.after_cancel(self.new_time)
             self.running = False
         self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
         self.stopwatch_label.config(text='00:00:00')
