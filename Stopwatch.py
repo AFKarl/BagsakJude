@@ -69,21 +69,6 @@ class stopwatch(tk.Frame):
 
         self.window.title("STOPWATCH")
 
-
-    def split_time(self):
-        if self.running:
-            lap_length = [x for x in range(len(self.lap_dictionary))]
-
-            if  self.laps in lap_length:
-                self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
-                self.laps += 1
-
-            else:
-                self.laps = 0
-                for key, value in self.lap_dictionary.items():
-                    value.configure(text="00:00:00")
-                self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
-                
         
     def start_time(self):
         if not self.running:
@@ -96,6 +81,19 @@ class stopwatch(tk.Frame):
             self.stopwatch_label.after_cancel(self.new_time)
             self.running = False
 
+    def split_time(self):
+            if self.running:
+                lap_length = [x for x in range(len(self.lap_dictionary))]
+
+                if  self.laps in lap_length:
+                    self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
+                    self.laps += 1
+
+                else:
+                    self.laps = 0
+                    for key, value in self.lap_dictionary.items():
+                        value.configure(text="00:00:00")
+                    self.lap_dictionary[str(self.laps)].configure(text=self.stopwatch_label['text'])
 
     def reset_time(self):
         if self.running:
@@ -105,6 +103,7 @@ class stopwatch(tk.Frame):
             for key, value in self.lap_dictionary.items():
                 value.configure(text="00:00:00")
                 self.laps = 0
+
 
         self.total_miliseconds, self.total_minutes, self.total_seconds = 0,0,0
         self.stopwatch_label.config(text='00:00:00')
